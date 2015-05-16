@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Circle with PLOT</title>
+        <link rel='stylesheet' type='text/css' href='css/style.css'/>
+    </head>
+    <body>
+        <canvas id="tk90x" width="768" height="576">
+            This text is displayed if your browser does not support HTML5 Canvas.
+        </canvas>
+        <script type="text/javascript" src="js/basic.js"></script>
+        <script type="text/javascript">
+            var c = new BASIC();
+
+            //Draw a circle with PLOT
+            var x = 127
+            var y = 87
+            var r = 40
+            var q = 1 / r
+
+            for(var i = 0; i <= Math.PI / 2; i += q) {
+                dy = Math.sin(i) * r;
+                dx = Math.cos(i) * r;
+
+                zx = x - dx;
+                zy = y - dy;
+                ax = x + dx;
+                ay = y + dy;
+
+                c.PLOT(ax, ay);
+                c.PLOT(zx, ay);
+                c.PLOT(ax, zy);
+                c.PLOT(zx, zy);
+            }
+        </script>
+    </body>
+</html>
